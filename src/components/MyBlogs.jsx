@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
-import API_BASE_URL from '../config/api'
 import './MyBlogs.css'
 
 function MyBlogs() {
@@ -30,7 +29,7 @@ function MyBlogs() {
     }
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/my`, {
+      const response = await fetch('http://localhost:5000/api/blogs/my', {
         headers: {
           'Authorization': `Bearer ${token}`
         }
@@ -57,7 +56,7 @@ function MyBlogs() {
     const token = localStorage.getItem('authToken')
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/${editingBlog}`, {
+      const response = await fetch(`http://localhost:5000/api/blogs/${editingBlog}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -81,7 +80,7 @@ function MyBlogs() {
     const token = localStorage.getItem('authToken')
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs/${blogId}`, {
+      const response = await fetch(`http://localhost:5000/api/blogs/${blogId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`

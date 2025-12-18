@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
-import API_BASE_URL from '../config/api'
 import './Login.css'
 import bgImage from '../assets/img.webp'
 
@@ -19,7 +18,7 @@ function Login() {
     setError('')
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/login`, {
+      const response = await fetch('http://localhost:5000/api/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -39,7 +38,7 @@ function Login() {
     } catch (err) {
       console.error('Login error:', err)
       if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('Cannot connect to server. Please check your internet connection.')
+        setError('Cannot connect to server. Please make sure the backend is running on port 5000.')
       } else {
         setError('Network error. Please try again.')
       }

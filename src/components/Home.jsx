@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
-import API_BASE_URL from '../config/api'
 import './Home.css'
 
 function Home() {
@@ -14,7 +13,7 @@ function Home() {
       const token = localStorage.getItem('authToken')
       if (token) {
         try {
-          const response = await fetch(`${API_BASE_URL}/api/stats`, {
+          const response = await fetch('http://localhost:5000/api/stats', {
             headers: {
               'Authorization': `Bearer ${token}`
             }

@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
-import API_BASE_URL from '../config/api'
 import './UserInfo.css'
 
 function UserInfo() {
@@ -21,7 +20,7 @@ function UserInfo() {
     setError('')
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/register`, {
+      const response = await fetch('http://localhost:5000/api/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

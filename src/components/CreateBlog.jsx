@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
-import API_BASE_URL from '../config/api'
 import './CreateBlog.css'
 
 function CreateBlog() {
@@ -30,7 +29,7 @@ function CreateBlog() {
     }
     
     try {
-      const response = await fetch(`${API_BASE_URL}/api/blogs`, {
+      const response = await fetch('http://localhost:5000/api/blogs', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
