@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
+import API_BASE_URL from '../config/api'
 import './Login.css'
 import bgImage from '../assets/img.webp'
 
@@ -18,7 +19,7 @@ function Login() {
     setError('')
     
     try {
-      const response = await fetch('http://localhost:5000/api/login', {
+      const response = await fetch(`${API_BASE_URL}/api/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

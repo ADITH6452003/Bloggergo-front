@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, useNavigate } from 'react-router-dom'
 import { useUser } from '../contexts/UserContext'
+import API_BASE_URL from '../config/api'
 import './SearchResults.css'
 
 function SearchResults() {
@@ -16,7 +17,7 @@ function SearchResults() {
       if (!query) return
       
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/search?query=${encodeURIComponent(query)}`)
+        const response = await fetch(`${API_BASE_URL}/api/blogs/search?query=${encodeURIComponent(query)}`)
         if (response.ok) {
           const data = await response.json()
           setBlogs(data)
