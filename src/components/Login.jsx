@@ -39,7 +39,7 @@ function Login() {
     } catch (err) {
       console.error('Login error:', err)
       if (err.name === 'TypeError' && err.message.includes('fetch')) {
-        setError('Cannot connect to server. Please make sure the backend is running on port 5000.')
+        setError('Cannot connect to server. Please check your internet connection.')
       } else {
         setError('Network error. Please try again.')
       }
