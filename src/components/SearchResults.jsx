@@ -16,7 +16,7 @@ function SearchResults() {
       if (!query) return
       
       try {
-        const response = await fetch(`http://localhost:5000/api/blogs/search?query=${encodeURIComponent(query)}`
+        const response = await fetch(`http://localhost:5000/api/blogs/search?query=${encodeURIComponent(query)}`)
         if (response.ok) {
           const data = await response.json()
           setBlogs(data)
